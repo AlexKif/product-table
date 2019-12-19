@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import Products from "./components/Products/Products";
+import AppRouter from "./appRouter/AppRouter";
 
 function App() {
-  return (
-    <div className="App">
-      <Products/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <AppRouter/>
+        </div>
+    );
 }
 
 export default App;
