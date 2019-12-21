@@ -1,0 +1,5 @@
+export const loginConstants = {
+  GET_TOKEN: 'GET_TOKEN',
+  CREATE_REQUEST: 'CREATE_REQUEST',
+  FAILURE_TOKEN: 'FAILURE_TOKEN'
+};
