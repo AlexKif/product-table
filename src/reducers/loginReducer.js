@@ -4,7 +4,8 @@ export const initialState = {
     token: null,
     isRemember: null,
     loading: false,
-    fail: false
+    fail: false,
+    login: false
 };
 
 export const loginReducer = (state = initialState, action) => {
@@ -14,9 +15,10 @@ export const loginReducer = (state = initialState, action) => {
         case loginConstants.GET_TOKEN:
             if (isRemember) {
                 localStorage.setItem('token', JSON.stringify(token))
+
             }
             return {
-                ...state, token: token, isRemember: isRemember, loading: false
+                ...state, token: token, isRemember: isRemember, loading: false, login: true
             };
         case loginConstants.CREATE_REQUEST:
             return {

@@ -1,14 +1,28 @@
 import {productsConstants} from "../constans/productsConstans";
 
 export const initialState = {
-    products: undefined
+    loading: false,
+    products: [],
+    createdProduct: {}
 };
 
-export const usersReducer = (state = initialState, action) => {
+export const productReducer = (state = initialState, action) => {
     switch (action.type){
-        case productsConstants.GET_PRODUCTS:
+        case productsConstants.CREATE_REQUEST:
             return {
-                ...state, products: action.products
+                ...state, loading: true
+            };
+        case productsConstants.SUCCESS_REQUEST:
+            return {
+                ...state, loading: false, products: action.products
+            };
+        case productsConstants.CREATE_REQUEST_PRODUCT:
+            return {
+                ...state
+            };
+        case productsConstants.SUCCESS_REQUEST_PRODUCT:
+            return {
+                ...state, createdProduct: action.product
             };
         default:
             return state;

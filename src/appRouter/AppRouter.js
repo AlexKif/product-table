@@ -2,22 +2,40 @@ import React from 'react';
 import {Route, BrowserRouter as Router, Switch, Redirect} from "react-router-dom";
 import Login from "../components/Login/Login";
 import Products from "../components/Products/Products";
+import {connect} from "react-redux";
 
+class AppRouter extends React.Component {
 
-function AppRouter(props) {
-    return (
-        <Router>
-            <Switch>
-                <Route path="/">
-                    <Login/>
-                </Route>
-                <Route path="/products">
-                    <Products/>
-                </Route>
-                <Switch/>
-            </Switch>
-        </Router>
-    );
+    render() {
+
+        const {authorization} = this.props;
+        const token = localStorage.getItem('token');
+
+        return (
+            <Router>
+                {authorization.login || token ? (
+                    <Switch>
+                        <Route path="/">
+                            <Products/>
+                        </Route>
+                    </Switch>
+                    ) :
+                    <Switch>
+                        <Route path="/">
+                            <Redirect to="/"/>
+                            <Login/>
+                        </Route>
+                    </Switch>
+                }
+            </Router>
+        );
+    }
 }
 
-export default AppRouter;
+const mapStateToProps = ({loginReducer}) => {
+    return {
+        authorization: loginReducer
+    }
+};
+
+export default connect(mapStateToProps)(AppRouter);

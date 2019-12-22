@@ -3,12 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a3119038-80ee-4d49-85b7-85676dbc9730" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/appRouter/AppRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/appRouter/AppRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/Products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsTable/ProductsTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsTable/ProductsTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constans/productsConstans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constans/productsConstans.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/loginServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/loginServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/loginReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/loginReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/productReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/productReducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +36,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../littleredwagon" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
@@ -66,7 +69,8 @@
       <updated>1576750455005</updated>
       <workItem from="1576750456192" duration="30049000" />
       <workItem from="1576837022747" duration="18414000" />
-      <workItem from="1576916926519" duration="5312000" />
+      <workItem from="1576916926519" duration="26039000" />
+      <workItem from="1577006675113" duration="14385000" />
     </task>
     <servers />
   </component>
