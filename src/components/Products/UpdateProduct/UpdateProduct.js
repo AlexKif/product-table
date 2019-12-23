@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 import {Button} from "antd";
-import CreateProductForm from "./CreateProductForm/CreateProductForm";
-import {connect} from "react-redux";
-import {addProduct} from "../../../actions/productAction";
+import UpdateProductModal from "./UpdateProductForm/UpdateProductForm";
 
-import './style.scss'
-
-class AddProduct extends Component {
+class UpdateProduct extends Component {
 
     state = {
         visible: false,
@@ -27,7 +23,7 @@ class AddProduct extends Component {
                 return;
             }
             const token = JSON.parse(localStorage.getItem('token'));
-            this.props.dispatch(addProduct(token, values))
+            // this.props.dispatch(addProduct(token, values))
         });
         form.resetFields();
         this.setState({ visible: false });
@@ -37,20 +33,23 @@ class AddProduct extends Component {
         this.formRef = formRef;
     };
 
+
     render() {
         return (
             <React.Fragment>
-                <Button type="primary" onClick={this.showModal} loading={this.props.isActive} className="add-product">
-                    Додати продукт
+                <Button type="primary" ghost onClick={this.showModal} className="add-product">
+                    Редагувати
                 </Button>
-                <CreateProductForm
+                <UpdateProductModal
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}
                     onCancel={this.handleCancel}
-                    onCreate={this.handleCreate}/>
+                    onCreate={this.handleCreate}
+                    currentProduct={this.props.currentProduct}
+                />
             </React.Fragment>
         );
     }
 }
 
-export default connect()(AddProduct);
+export default UpdateProduct;

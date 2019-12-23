@@ -20,19 +20,47 @@ export const getProducts = (token, page) => (dispatch) => {
 };
 
 export const addProduct = (token, value) => dispatch => {
-    dispatch(request);
+    dispatch(request());
     productServices.createProduct(token, value).then(res => {
-        console.log(res);
-        dispatch(success(res))
+        return dispatch(success(res))
     });
+
     function request() {
         return {
             type: productsConstants.CREATE_REQUEST_PRODUCT
         }
     }
+
     function success(product) {
         return {
             type: productsConstants.SUCCESS_REQUEST_PRODUCT, product
+        }
+    }
+};
+
+export const deleteProduct = (token, product) => dispatch => {
+    dispatch(request());
+    productServices.deleteProduct(token, product).then(res => {
+        return dispatch(success(res));
+    }).catch(err => {
+        return dispatch(failure(err));
+    });
+
+    function request() {
+        return {
+            type: productsConstants.REQUEST_DELETE_PRODUCT
+        }
+    }
+
+    function success(deletedProduct) {
+        return {
+            type: productsConstants.SUCCESS_DELETE_PRODUCT, deletedProduct
+        }
+    }
+
+    function failure(error) {
+        return {
+            type: productsConstants.FAILURE_DELETE_PRODUCT, error
         }
     }
 };

@@ -1,53 +1,50 @@
 import React, {Component} from 'react';
-import {Form, Input, InputNumber, Modal, Spin} from "antd";
-import {connect} from "react-redux";
-import {notification} from "antd";
-import {getProducts} from "../../../../actions/productAction";
+import {Form, Input, InputNumber, Modal, notification, Spin} from "antd";
 
-class CreateProductForm extends Component {
+class UpdateProductForm extends Component {
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        const token = JSON.parse(localStorage.getItem('token'));
-        console.log(this.props.isCreated);
-        if (this.props.isCreated) {
-            this.props.dispatch(getProducts(token));
-            notification.open({
-                message: 'Продукт добавлено'
-            });
-        }
-    }
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     if (this.props.isCreated) {
+    //         notification.open({
+    //             message: 'Продукт добавлено'
+    //         });
+    //     }
+    // }
 
     render() {
-        const { visible, onCancel, onCreate, form, isCreated } = this.props;
+        const { visible, onCancel, onCreate, form, currentProduct} = this.props;
         const { getFieldDecorator } = form;
 
         return (
             <Modal
                 visible={visible}
-                title="Додати продукт"
-                okText="Додати"
+                title="Редагувати продукт"
+                okText="Редагувати"
                 onCancel={onCancel}
                 onOk={onCreate}
                 cancelText="Відміна"
             >
-                <Spin spinning={isCreated}>
+                <Spin spinning={false}>
                     <Form layout="vertical" className="modal-form">
                         <Form.Item label="name">
                             <p className="property-name">Ім'я</p>
                             {getFieldDecorator('name', {
                                 rules: [{ required: true, message: 'Будь ласка, заповніть це поле!' }],
-                            })(<Input />)}
+                            initialValue: currentProduct.name
+                            })(<Input/>)}
                         </Form.Item>
                         <Form.Item label="description">
                             <p className="property-name">Опис</p>
                             {getFieldDecorator('description', {
                                 rules: [{ required: true, message: 'Будь ласка, заповніть це поле!' }],
-                            })(<Input />)}
+                                initialValue: currentProduct.description
+                            })(<Input/>)}
                         </Form.Item>
                         <Form.Item label="price">
                             <p className="property-name">Ціна</p>
                             {getFieldDecorator('price', {
-                                rules: [{ required: true, message: 'Будь ласка, заповніть це поле!' }]
+                                rules: [{ required: true, message: 'Будь ласка, заповніть це поле!' }],
+                                initialValue: currentProduct.price
                             })(<InputNumber />)}
                         </Form.Item>
                     </Form>
@@ -57,12 +54,7 @@ class CreateProductForm extends Component {
     }
 }
 
-const mapStateToProps = ({productReducer}) => {
-    return {
-        isCreated: productReducer.isCreated
-    }
-};
 
-const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(CreateProductForm);
+const UpdateProductModal = Form.create({ name: 'form_in_modal' })(UpdateProductForm);
 
-export default connect(mapStateToProps)(CollectionCreateForm);
+export default UpdateProductModal;

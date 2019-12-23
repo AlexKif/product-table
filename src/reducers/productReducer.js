@@ -3,7 +3,11 @@ import {productsConstants} from "../constans/productsConstans";
 export const initialState = {
     loading: false,
     products: [],
-    createdProduct: {}
+    createdProduct: {},
+    isCreated: false,
+    remoteProduct: {},
+    errorDelete: null,
+    isDelete: false
 };
 
 export const productReducer = (state = initialState, action) => {
@@ -18,13 +22,29 @@ export const productReducer = (state = initialState, action) => {
             };
         case productsConstants.CREATE_REQUEST_PRODUCT:
             return {
-                ...state
+                ...state, isCreated: true
             };
         case productsConstants.SUCCESS_REQUEST_PRODUCT:
             return {
-                ...state, createdProduct: action.product
+                ...state, createdProduct: action.product, isCreated: false
+            };
+        case productsConstants.REQUEST_DELETE_PRODUCT:
+            return {
+                ...state, isDelete: true
+            };
+        case productsConstants.SUCCESS_DELETE_PRODUCT:
+            return {
+                ...state, remoteProduct: action.deletedProduct, isDelete: false
+            };
+        case productsConstants.FAILURE_DELETE_PRODUCT:
+            return {
+                ...state, errorDelete: action.error
             };
         default:
             return state;
     }
 };
+
+
+
+
