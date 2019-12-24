@@ -26,7 +26,7 @@ const ProductsTable = (props) => {
         {
             title: 'Дії',
             key: 'action',
-            render: (text, index) => {
+            render: (text) => {
                 return (
                 <span>
                     <UpdateProduct currentProduct={text}/>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Form, Icon, Input, Button, Checkbox} from 'antd';
+import {Form, Icon, Input, Button} from 'antd';
 
 function hasErrors(fieldsError) {
     return Object.keys(fieldsError).some(field => {
@@ -30,18 +30,18 @@ class LoginForm extends Component {
                         rules: [
                             {
                                 type: 'email',
-                                message: 'The input is not valid E-mail!',
+                                message: 'Формат електронної пошти не є валідним',
                             },
                             {
                                 required: true,
-                                message: 'Please input your E-mail!',
+                                message: 'Будь ласка введіть E-mail!',
                             },
                         ],
                     })(<Input placeholder="E-mail"/>)}
                 </Form.Item>
                 <Form.Item validateStatus={passwordError ? 'error' : ''} help={passwordError || ''}>
                     {getFieldDecorator('password', {
-                        rules: [{required: true, message: 'Please input your Password!'}],
+                        rules: [{required: true, message: 'Будь ласка введіть пароль!'}],
                     })(
                         <Input
                             prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
@@ -51,10 +51,6 @@ class LoginForm extends Component {
                     )}
                 </Form.Item>
                 <Form.Item className="form-actions">
-                    {getFieldDecorator('remember', {
-                        valuePropName: 'checked',
-                        initialValue: false,
-                    })(<Checkbox>Remember me</Checkbox>)}
                     <Button type="primary" htmlType="submit" disabled={hasErrors(getFieldsError())}>
                         Log in
                     </Button>

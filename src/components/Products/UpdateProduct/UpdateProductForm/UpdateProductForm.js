@@ -16,7 +16,6 @@ class UpdateProductForm extends Component {
     render() {
         const { visible, onCancel, onCreate, form, currentProduct} = this.props;
         const { getFieldDecorator } = form;
-        // console.log(currentProduct);
         return (
             <Modal
                 visible={visible}

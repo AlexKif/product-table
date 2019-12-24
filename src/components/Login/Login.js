@@ -15,17 +15,12 @@ class Login extends Component {
     render() {
         if (this.props.value.fail) {
             notification.open({
-                message: 'Incorrect username or password.'
+                message: 'Логін або пароль невірний'
             });
         }
         return (
             <div className="login">
                 <Spin spinning={this.props.value.loading}>
-                    {/*<div className="test-data">*/}
-                    {/*    <h3>Для перевірки:</h3>*/}
-                    {/*    <p>user1@email.com</p>*/}
-                    {/*    <p>!password!</p>*/}
-                    {/*</div>*/}
                     <h3>Sign in</h3>
                     <WrappedLoginForm validateFields={this.validateFields} goLogin={this.goLogin}/>
                 </Spin>

@@ -8,7 +8,6 @@ class CreateProductForm extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         const token = JSON.parse(localStorage.getItem('token'));
-        console.log(this.props.isCreated);
         if (this.props.isCreated) {
             this.props.dispatch(getProducts(token));
             notification.open({

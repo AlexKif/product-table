@@ -3,15 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a3119038-80ee-4d49-85b7-85676dbc9730" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/productAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/productAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/Products.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsTable/ProductsTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsTable/ProductsTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/UpdateProduct/UpdateProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/UpdateProduct/UpdateProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/loginAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/loginAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/LoginForm/loginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/LoginForm/loginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/AddProduct/CreateProductForm/CreateProductForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/AddProduct/CreateProductForm/CreateProductForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Products/UpdateProduct/UpdateProductForm/UpdateProductForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/UpdateProduct/UpdateProductForm/UpdateProductForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constans/productsConstans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constans/productsConstans.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/loginReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/loginReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/productReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/productReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/productServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/productServices.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +69,7 @@
       <workItem from="1576916926519" duration="26039000" />
       <workItem from="1577006675113" duration="27746000" />
       <workItem from="1577088048130" duration="38470000" />
-      <workItem from="1577184574031" duration="9151000" />
+      <workItem from="1577184574031" duration="9999000" />
     </task>
     <servers />
   </component>

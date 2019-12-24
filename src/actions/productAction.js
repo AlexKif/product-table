@@ -13,6 +13,7 @@ export const getProducts = (token, page) => (dispatch) => {
             type: productsConstants.CREATE_REQUEST
         }
     }
+
     function success(products) {
         return {
             type: productsConstants.SUCCESS_REQUEST, products

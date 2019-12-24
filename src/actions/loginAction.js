@@ -1,7 +1,7 @@
 import {loginConstants} from "../constans/loginConstants";
 import {loginServices} from "../services/loginServices";
 
-export const login = ({email, password, remember}) => (dispatch) => {
+export const login = ({email, password, remember}) => dispatch => {
     dispatch(requestToken());
     loginServices.login(email, password)
         .then(res => {
