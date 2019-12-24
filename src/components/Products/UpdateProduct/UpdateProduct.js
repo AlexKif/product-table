@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Button} from "antd";
+import {updateProduct} from "../../../actions/productAction";
 import UpdateProductModal from "./UpdateProductForm/UpdateProductForm";
+import {connect} from "react-redux";
 
 class UpdateProduct extends Component {
 
@@ -22,8 +24,10 @@ class UpdateProduct extends Component {
             if (err) {
                 return;
             }
+            const newProduct = values;
+            newProduct.key = this.props.currentProduct.key;
             const token = JSON.parse(localStorage.getItem('token'));
-            // this.props.dispatch(addProduct(token, values))
+            this.props.dispatch(updateProduct(token, newProduct))
         });
         form.resetFields();
         this.setState({ visible: false });
@@ -52,4 +56,4 @@ class UpdateProduct extends Component {
     }
 }
 
-export default UpdateProduct;
+export default connect()(UpdateProduct);

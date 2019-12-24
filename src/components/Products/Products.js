@@ -4,19 +4,12 @@ import {connect} from "react-redux";
 import {deleteProduct, getProducts} from "../../actions/productAction";
 
 import './style.scss';
-import {notification} from "antd";
 
 class Products extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // console.log('prevProps', prevProps);
-        // console.log('currentProps', this.props);
-        const {isDelete} = this.props;
-        if (isDelete) {
-            notification.open({
-                message: 'Продукт удален'
-            });
-            // this.getProducts()
+        if (this.props.isDelete) {
+            this.getProducts();
         }
     }
 

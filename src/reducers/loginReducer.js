@@ -10,7 +10,6 @@ export const initialState = {
 
 export const loginReducer = (state = initialState, action) => {
     const {token, isRemember} = action;
-    // debugger;
     switch (action.type){
         case loginConstants.GET_TOKEN:
             if (isRemember) {

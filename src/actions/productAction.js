@@ -1,5 +1,6 @@
 import {productsConstants} from "../constans/productsConstans";
 import {productServices} from "../services/productServices";
+import {notification} from "antd";
 
 export const getProducts = (token, page) => (dispatch) => {
     dispatch(request());
@@ -41,6 +42,9 @@ export const addProduct = (token, value) => dispatch => {
 export const deleteProduct = (token, product) => dispatch => {
     dispatch(request());
     productServices.deleteProduct(token, product).then(res => {
+                notification.open({
+                    message: 'Продукт видалено'
+                });
         return dispatch(success(res));
     }).catch(err => {
         return dispatch(failure(err));
@@ -64,3 +68,26 @@ export const deleteProduct = (token, product) => dispatch => {
         }
     }
 };
+
+export const updateProduct = (token, product) => dispatch => {
+    dispatch(request());
+    productServices.updateProduct(token, product).then(res => {
+        notification.open({
+            message: 'Продукт оновлено'
+        });
+        return dispatch(success(res))
+    });
+
+    function request() {
+        return {
+            type: productsConstants.REQUEST_UPDATE_PRODUCT
+        }
+    }
+
+    function success(updatedProduct) {
+        return {
+            type: productsConstants.SUCCESS_UPDATE_PRODUCT, updatedProduct
+        }
+    }
+};
+

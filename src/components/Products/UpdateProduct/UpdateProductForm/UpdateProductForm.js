@@ -1,20 +1,22 @@
 import React, {Component} from 'react';
-import {Form, Input, InputNumber, Modal, notification, Spin} from "antd";
+import {Form, Input, InputNumber, Modal, Spin} from "antd";
+import {getProducts} from "../../../../actions/productAction";
+import {connect} from "react-redux";
 
 class UpdateProductForm extends Component {
 
-    // componentDidUpdate(prevProps, prevState, snapshot) {
-    //     if (this.props.isCreated) {
-    //         notification.open({
-    //             message: 'Продукт добавлено'
-    //         });
-    //     }
-    // }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const token = JSON.parse(localStorage.getItem('token'));
+        const {dispatch, isUpdate} = this.props;
+        if(isUpdate) {
+            dispatch(getProducts(token))
+        }
+    }
 
     render() {
         const { visible, onCancel, onCreate, form, currentProduct} = this.props;
         const { getFieldDecorator } = form;
-
+        // console.log(currentProduct);
         return (
             <Modal
                 visible={visible}
@@ -54,7 +56,12 @@ class UpdateProductForm extends Component {
     }
 }
 
+const mapStateToProps = ({productReducer}) => {
+    return {
+        isUpdate: productReducer.isUpdate
+    }
+};
 
 const UpdateProductModal = Form.create({ name: 'form_in_modal' })(UpdateProductForm);
 
-export default UpdateProductModal;
+export default connect(mapStateToProps)(UpdateProductModal);

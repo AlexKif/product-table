@@ -7,7 +7,8 @@ export const initialState = {
     isCreated: false,
     remoteProduct: {},
     errorDelete: null,
-    isDelete: false
+    isDelete: false,
+    isUpdate: false
 };
 
 export const productReducer = (state = initialState, action) => {
@@ -39,6 +40,14 @@ export const productReducer = (state = initialState, action) => {
         case productsConstants.FAILURE_DELETE_PRODUCT:
             return {
                 ...state, errorDelete: action.error
+            };
+        case productsConstants.REQUEST_UPDATE_PRODUCT:
+            return {
+                ...state, isUpdate: true
+            };
+        case productsConstants.SUCCESS_UPDATE_PRODUCT:
+            return {
+                ...state, isUpdate: false
             };
         default:
             return state;
