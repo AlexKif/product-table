@@ -30,8 +30,12 @@ const ProductsTable = (props) => {
                 return (
                 <span>
                     <UpdateProduct currentProduct={text}/>
-                    <Divider type="vertical" />
-                    {text.status === 10 ? <Button type="danger" ghost onClick={props.deleteItem.bind(this, text)}>Видалити</Button>: undefined}
+                    {text.status === 10 ?
+                        <Fragment>
+                            <Divider type="vertical" />
+                            <Button type="danger" ghost onClick={props.deleteItem.bind(this, text)}>Видалити</Button>
+                        </Fragment>
+                        : undefined}
                 </span>
             )},
         },

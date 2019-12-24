@@ -26,8 +26,7 @@ class UpdateProduct extends Component {
             }
             const newProduct = values;
             newProduct.key = this.props.currentProduct.key;
-            const token = JSON.parse(localStorage.getItem('token'));
-            this.props.dispatch(updateProduct(token, newProduct))
+            this.props.dispatch(updateProduct(newProduct))
         });
         form.resetFields();
         this.setState({ visible: false });

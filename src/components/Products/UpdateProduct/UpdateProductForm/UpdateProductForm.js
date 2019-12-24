@@ -6,10 +6,9 @@ import {connect} from "react-redux";
 class UpdateProductForm extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        const token = JSON.parse(localStorage.getItem('token'));
         const {dispatch, isUpdate} = this.props;
         if(isUpdate) {
-            dispatch(getProducts(token))
+            dispatch(getProducts())
         }
     }
 

@@ -26,8 +26,7 @@ class AddProduct extends Component {
             if (err) {
                 return;
             }
-            const token = JSON.parse(localStorage.getItem('token'));
-            this.props.dispatch(addProduct(token, values))
+            this.props.dispatch(addProduct(values))
         });
         form.resetFields();
         this.setState({ visible: false });

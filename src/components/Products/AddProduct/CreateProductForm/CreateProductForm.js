@@ -7,9 +7,8 @@ import {getProducts} from "../../../../actions/productAction";
 class CreateProductForm extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        const token = JSON.parse(localStorage.getItem('token'));
         if (this.props.isCreated) {
-            this.props.dispatch(getProducts(token));
+            this.props.dispatch(getProducts());
             notification.open({
                 message: 'Продукт добавлено'
             });

@@ -14,17 +14,15 @@ class Products extends Component {
     }
 
     getProducts = (page) => {
-        const token = JSON.parse(localStorage.getItem('token'));
-        this.props.dispatch(getProducts(token, page))
+        this.props.dispatch(getProducts(page))
     };
 
     deleteItem = (product) => {
-        const token = JSON.parse(localStorage.getItem('token'));
-        this.props.dispatch(deleteProduct(token, product))
+        this.props.dispatch(deleteProduct(product))
     };
 
     componentDidMount() {
-        this.getProducts()
+        this.getProducts ()
     }
 
     render() {

@@ -1,11 +1,12 @@
 import {loginConstants} from "../constans/loginConstants";
 import {loginServices} from "../services/loginServices";
 
-export const login = ({email, password, remember}) => dispatch => {
+export const login = ({email, password}) => dispatch => {
     dispatch(requestToken());
     loginServices.login(email, password)
         .then(res => {
-            dispatch(successToken(res.access_token, remember ))
+            localStorage.setItem('token', JSON.stringify(res.access_token));
+            dispatch(successToken())
         })
         .catch(err => {
             dispatch(failureToken(err))
@@ -17,9 +18,9 @@ export const login = ({email, password, remember}) => dispatch => {
         }
     }
 
-    function successToken(token, isRemember) {
+    function successToken() {
         return {
-            type: loginConstants.GET_TOKEN, token, isRemember
+            type: loginConstants.GET_TOKEN
         }
     }
 

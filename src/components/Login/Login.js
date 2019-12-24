@@ -21,7 +21,7 @@ class Login extends Component {
         return (
             <div className="login">
                 <Spin spinning={this.props.value.loading}>
-                    <h3>Sign in</h3>
+                    <h3>Авторизація</h3>
                     <WrappedLoginForm validateFields={this.validateFields} goLogin={this.goLogin}/>
                 </Spin>
             </div>

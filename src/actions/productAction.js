@@ -2,9 +2,9 @@ import {productsConstants} from "../constans/productsConstans";
 import {productServices} from "../services/productServices";
 import {notification} from "antd";
 
-export const getProducts = (token, page) => (dispatch) => {
+export const getProducts = (page) => (dispatch) => {
     dispatch(request());
-    productServices.getProducts(token, page).then(res => {
+    productServices.getProducts(page).then(res => {
         return dispatch(success(res))
     });
 
@@ -21,9 +21,9 @@ export const getProducts = (token, page) => (dispatch) => {
     }
 };
 
-export const addProduct = (token, value) => dispatch => {
+export const addProduct = (value) => dispatch => {
     dispatch(request());
-    productServices.createProduct(token, value).then(res => {
+    productServices.createProduct(value).then(res => {
         return dispatch(success(res))
     });
 
@@ -40,9 +40,9 @@ export const addProduct = (token, value) => dispatch => {
     }
 };
 
-export const deleteProduct = (token, product) => dispatch => {
+export const deleteProduct = (product) => dispatch => {
     dispatch(request());
-    productServices.deleteProduct(token, product).then(res => {
+    productServices.deleteProduct(product).then(res => {
                 notification.open({
                     message: 'Продукт видалено'
                 });
@@ -70,9 +70,9 @@ export const deleteProduct = (token, product) => dispatch => {
     }
 };
 
-export const updateProduct = (token, product) => dispatch => {
+export const updateProduct = (product) => dispatch => {
     dispatch(request());
-    productServices.updateProduct(token, product).then(res => {
+    productServices.updateProduct(product).then(res => {
         notification.open({
             message: 'Продукт оновлено'
         });

@@ -52,7 +52,7 @@ class LoginForm extends Component {
                 </Form.Item>
                 <Form.Item className="form-actions">
                     <Button type="primary" htmlType="submit" disabled={hasErrors(getFieldsError())}>
-                        Log in
+                        Увійти
                     </Button>
                 </Form.Item>
             </Form>
