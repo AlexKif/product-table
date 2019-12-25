@@ -29,7 +29,7 @@ function createProduct({name, description, price, status = 10}) {
 
 function deleteProduct({key}) {
     const token = JSON.parse(localStorage.getItem('token'));
-    return axios.put(`${process.env.REACT_APP_BASE_URL}articles/${key+1}`,
+    return axios.put(`${process.env.REACT_APP_BASE_URL}articles/${key}`,
         {status: 0}, {headers: {'Authorization': `Bearer ${token}`}}).then(res => {
             return res.data
     })
@@ -37,7 +37,7 @@ function deleteProduct({key}) {
 
 function updateProduct({name, key, description, price}) {
     const token = JSON.parse(localStorage.getItem('token'));
-    return axios.put(`${process.env.REACT_APP_BASE_URL}articles/${key+1}`,
+    return axios.put(`${process.env.REACT_APP_BASE_URL}articles/${key}`,
         {name: name, description: description, price: price}, {headers: {'Authorization': `Bearer ${token}`}}).then(res => {
         return res.data
     })

@@ -42,9 +42,13 @@ const ProductsTable = (props) => {
     ];
 
     const renderProducts = () => {
-       return props.products.map((product, index) => {
+        const products = props.products;
+        products.sort(function(a,b){
+            return b.created_at - a.created_at;
+        });
+       return products.map((product) => {
             return {
-                key: index,
+                key: product.id,
                 name: product.name,
                 price: product.price,
                 description: product.description,
